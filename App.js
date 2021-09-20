@@ -1,36 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  Image,
-  SafeAreaView,
-} from "react-native";
+import { View } from "react-native";
+import Card from "./app/components/Card";
+import MessagesScreen from "./app/screens/MessagesScreen";
+// import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
+// import { MaterialCommunityIcons } from "@expo/vector-icons";
+// import ViewImageScreen from "./app/screens/ViewImageScreen";
+// import WelcomeScreen from "./app/screens/WelcomeScreen";
+// import AppButton from "./app/components/AppButton";
+// import AppText from "./app/components/AppText";
 
 export default function App() {
-  return (
-    <SafeAreaView style={styles.container}>
-      <Text numberOfLines={1}>Hello React Native</Text>
-      <TouchableOpacity onPress={() => console.log("Image Clicked")}>
-        <Image
-          source={{
-            width: 200,
-            height: 300,
-            uri: "https://picsum.photos/200/300",
-          }}
-        />
-      </TouchableOpacity>
-    </SafeAreaView>
-  );
+  return <MessagesScreen />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
