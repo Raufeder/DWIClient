@@ -1,16 +1,20 @@
 import React, { useState } from "react";
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
 
-import ListItem from "../components/ListItem";
-import ListItemDeleteAction from "../components/ListItemDeleteAction";
-import ListItemSeperator from "../components/ListItemSeperator";
+import {
+  ListItem,
+  ListItemDeleteAction,
+  ListItemSeperator,
+} from "../components/lists";
 import Screen from "../components/Screen";
 
 const initialMessages = [
   {
     id: 1,
-    title: "t1",
-    description: "d1",
+    title:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet imperdiet nulla. Nunc fringilla tincidunt congue. Praesent eu finibus ipsum. Nullam scelerisque massa sit amet ullamcorper consequat. Nam gravida, nisl venenatis egestas suscipit, lorem odio dapibus nulla, sit amet vestibulum nisi sem quis neque. Mauris convallis metus eget felis molestie sollicitudin. Sed congue tortor eu placerat scelerisque. Pellentesque vel tincidunt magna, in vulputate lectus. Proin ullamcorper urna et dui molestie, id sagittis velit ullamcorper. Suspendisse porttitor elit a facilisis varius. In ut gravida dolor. Mauris quam est, imperdiet id posuere vitae, vehicula non nibh. Interdum et malesuada fames ac.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet imperdiet nulla. Nunc fringilla tincidunt congue. Praesent eu finibus ipsum. Nullam scelerisque massa sit amet ullamcorper consequat. Nam gravida, nisl venenatis egestas suscipit, lorem odio dapibus nulla, sit amet vestibulum nisi sem quis neque. Mauris convallis metus eget felis molestie sollicitudin. Sed congue tortor eu placerat scelerisque. Pellentesque vel tincidunt magna, in vulputate lectus. Proin ullamcorper urna et dui molestie, id sagittis velit ullamcorper. Suspendisse porttitor elit a facilisis varius. In ut gravida dolor. Mauris quam est, imperdiet id posuere vitae, vehicula non nibh. Interdum et malesuada fames ac.",
     image: require("../assets/mosh.jpg"),
   },
   {
