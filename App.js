@@ -1,26 +1,24 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
-import { View, TextInput, Text, Switch } from "react-native";
+import React, { useState, useEffect } from "react";
+import { Button, Image, Text } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-//import LoginScreen from "./app/screens/LoginScreen";
-// import Card from "./app/components/Card";
-// import MessagesScreen from "./app/screens/MessagesScreen";
-// import Screen from "./app/components/Screen";
-// import AppPicker from "./app/components/AppPicker";
-// import AppTextInput from "./app/components/AppTextInput";
-// import ListItem from "./app/components/ListItem";
-// import Icon from "./app/components/Icon";
-// import AccountScreen from "./app/screens/AccountScreen";
-// import ListingsScreen from "./app/screens/ListingsScreen";
-// import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
-// import { MaterialCommunityIcons } from "@expo/vector-icons";
-// import ViewImageScreen from "./app/screens/ViewImageScreen";
-// import WelcomeScreen from "./app/screens/WelcomeScreen";
-// import AppButton from "./app/components/AppButton";
-// import AppText from "./app/components/AppText";
-//import RegisterScreen from "./app/screens/RegisterScreen";
-import ListingEditScreen from "./app/screens/ListingEditScreen";
+import Screen from "./app/components/Screen";
+import AuthNavigator from "./app/navigation/AuthNavigator";
+import MyTheme from "./app/navigation/NavigationTheme";
+import AppNavigator from "./app/navigation/AppNavigator";
+import OfflineNotice from "./app/components/OfflineNotice";
 
 export default function App() {
-  return <ListingEditScreen />;
+  return (
+    <>
+      <OfflineNotice />
+      <NavigationContainer theme={MyTheme}>
+        <AuthNavigator />
+      </NavigationContainer>
+    </>
+  );
 }
