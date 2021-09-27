@@ -7,8 +7,8 @@
     "icon": "./app/assets/icon.png",
     "splash": {
       "image": "./app/assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "cover",
+      "backgroundColor": "#e64c4b"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -28,6 +28,22 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": ""
+    "description": "",
+    "notification": {
+      "iosDisplayInForeground": true
+    },
+    "extra": {
+      "bugsnag": {
+        "apiKey": "0bd4a2b02b9ee6575dde6627e57c46a0"
+      }
+    },
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "@bugsnag/expo/hooks/post-publish.js",
+          "config": {}
+        }
+      ]
+    }
   }
 }

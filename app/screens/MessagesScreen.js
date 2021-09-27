@@ -7,6 +7,7 @@ import {
   ListItemSeperator,
 } from "../components/lists";
 import Screen from "../components/Screen";
+import logger from "../utility/logger";
 
 const initialMessages = [
   {
@@ -15,13 +16,13 @@ const initialMessages = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet imperdiet nulla. Nunc fringilla tincidunt congue. Praesent eu finibus ipsum. Nullam scelerisque massa sit amet ullamcorper consequat. Nam gravida, nisl venenatis egestas suscipit, lorem odio dapibus nulla, sit amet vestibulum nisi sem quis neque. Mauris convallis metus eget felis molestie sollicitudin. Sed congue tortor eu placerat scelerisque. Pellentesque vel tincidunt magna, in vulputate lectus. Proin ullamcorper urna et dui molestie, id sagittis velit ullamcorper. Suspendisse porttitor elit a facilisis varius. In ut gravida dolor. Mauris quam est, imperdiet id posuere vitae, vehicula non nibh. Interdum et malesuada fames ac.",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet imperdiet nulla. Nunc fringilla tincidunt congue. Praesent eu finibus ipsum. Nullam scelerisque massa sit amet ullamcorper consequat. Nam gravida, nisl venenatis egestas suscipit, lorem odio dapibus nulla, sit amet vestibulum nisi sem quis neque. Mauris convallis metus eget felis molestie sollicitudin. Sed congue tortor eu placerat scelerisque. Pellentesque vel tincidunt magna, in vulputate lectus. Proin ullamcorper urna et dui molestie, id sagittis velit ullamcorper. Suspendisse porttitor elit a facilisis varius. In ut gravida dolor. Mauris quam est, imperdiet id posuere vitae, vehicula non nibh. Interdum et malesuada fames ac.",
-    image: require("../assets/mosh.jpg"),
+    image: require("../assets/Derek.jpg"),
   },
   {
     id: 2,
     title: "t2",
     description: "d2",
-    image: require("../assets/mosh.jpg"),
+    image: require("../assets/Derek.jpg"),
   },
 ];
 
@@ -43,7 +44,7 @@ function MessagesScreen(props) {
             title={item.title}
             subTitle={item.description}
             image={item.image}
-            onPress={() => console.log("message selected", item)}
+            onPress={() => logger.log("message selected", item)}
             renderRightActions={() => (
               <ListItemDeleteAction onPress={() => handleDelete(item)} />
             )}
@@ -57,7 +58,7 @@ function MessagesScreen(props) {
               id: 2,
               title: "t2",
               description: "d2",
-              image: require("../assets/mosh.jpg"),
+              image: require("../assets/Derek.jpg"),
             },
           ]);
         }}

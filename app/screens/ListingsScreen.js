@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { FlatList, StyleSheet } from "react-native";
 
 import ActivityIndicator from "../components/ActivityIndicator";
@@ -12,37 +12,37 @@ import AppText from "../components/AppText";
 import useApi from "../hooks/useApi";
 
 function ListingsScreen({ navigation }) {
-  const { data: listings, error, loading, request: loadListings } = useApi(
-    listingsApi.getListings
-  );
+  const getListingsApi = useApi(listingsApi.getListings);
 
   useEffect(() => {
-    loadListings();
+    getListingsApi.request();
   }, []);
 
   return (
-    <Screen style={styles.screen}>
-      {error && (
-        <>
-          <AppText>Couldn't retrieve the listings.</AppText>
-          <AppButton title="retry" onPress={loadListings} />
-        </>
-      )}
-      <ActivityIndicator visible={loading} />
-      <FlatList
-        data={listings}
-        keyExtractor={(listing) => listing.id.toString()}
-        renderItem={({ item }) => (
-          <Card
-            title={item.title}
-            subTitle={"$" + item.price}
-            imageUrl={item.images[0].url}
-            onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
-            thumbnailUrl={item.images[0].thumbnailUrl}
-          />
+    <>
+      <ActivityIndicator visible={getListingsApi.loading} />
+      <Screen style={styles.screen}>
+        {getListingsApi.error && (
+          <>
+            <AppText>Couldn't retrieve the listings.</AppText>
+            <AppButton title="retry" onPress={getListingsApi.request} />
+          </>
         )}
-      />
-    </Screen>
+        <FlatList
+          data={getListingsApi.data}
+          keyExtractor={(listing) => listing.id.toString()}
+          renderItem={({ item }) => (
+            <Card
+              title={item.title}
+              subTitle={"$" + item.price}
+              imageUrl={item.images[0].url}
+              onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
+              thumbnailUrl={item.images[0].thumbnailUrl}
+            />
+          )}
+        />
+      </Screen>
+    </>
   );
 }
 

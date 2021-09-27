@@ -5,7 +5,6 @@ import Swipeable from "react-native-gesture-handler/Swipeable";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import AppText from "../AppText";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 
 function ListItem({
   title,
